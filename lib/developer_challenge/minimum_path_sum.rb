@@ -17,7 +17,7 @@ module MinimumPathSummer
         raise "Invalid triangle - line #{line} contains values that are not integers or floats."
       end
       unless line.length == i + 1
-        raise "Invalid triangle -line 1 should have 1 number, line 2 should have 2 numbers, etc."
+        raise "Invalid triangle - line 1 should have 1 number, line 2 should have 2 numbers, etc."
       end
     end
   end
