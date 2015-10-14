@@ -13,8 +13,8 @@ module MinimumPathSummer
       unless line.respond_to? 'each'
         raise "Invalid triangle - line #{line} is not a list."
       end
-      unless line.all? { |n| n.is_a? Numeric }
-        raise "Invalid triangle - line #{line} contains values that are not integers or floats."
+      unless line.all? { |n| n.is_a? Integer }
+        raise "Invalid triangle - line #{line} contains values that are not integers."
       end
       unless line.length == i + 1
         raise "Invalid triangle - line 1 should have 1 number, line 2 should have 2 numbers, etc."
@@ -51,7 +51,7 @@ module MinimumPathSummer
     File.open(file, "r") do |infile|
       while (line = infile.gets)
         nums = line.strip.split FILE_FIELD_SEPARATOR
-        nums = nums.map { |n| n.to_f }
+        nums = nums.map { |n| n.to_i }
         triangle.push nums
       end
     end
