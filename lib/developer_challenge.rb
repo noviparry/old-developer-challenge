@@ -6,7 +6,7 @@ module DeveloperChallenge
 
   def self.do_slowapi(hits, file)
     results = APIHitter.hit_repeatedly URL, hits
-    File.write file, results.join("\n")
+    File.write file, results.join("\n") + "\n"
   end
 
   def self.do_minimum_path_sum(file)

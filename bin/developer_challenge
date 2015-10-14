@@ -20,7 +20,7 @@ OptionParser.new do |opts|
   end
 end.parse!
 
-if not options.key? :file or not options.key? :test
+if not options.key?(:file) or not options.key?(:type)
   puts USAGE
   exit 1
 end
