@@ -1,6 +1,6 @@
 # coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+# lib = File.expand_path('../lib', __FILE__)
+# $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "developer_challenge"
@@ -19,8 +19,8 @@ Gem::Specification.new do |spec|
     raise "RubyGems 2.0 or newer is required to protect against public gem pushes."
   end
 
+  spec.files = Dir['lib/**/*.rb']
   spec.executables << 'developer_challenge'
-
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec",  "~> 2.0", ">= 2.0.0"
 end

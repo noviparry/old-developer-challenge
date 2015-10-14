@@ -5,7 +5,7 @@ module DeveloperChallenge
   URL = 'http://slowapi.com/delay/0.3'
 
   def self.do_slowapi(hits, file)
-    results = APIHitter.hit URL, hits
+    results = APIHitter.hit_repeatedly URL, hits
     File.write file, results.join("\n")
   end
 

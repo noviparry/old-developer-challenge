@@ -5,12 +5,12 @@ require 'developer_challenge'
 
 options = {}
 OptionParser.new do |opts|
-  opts.banner = "Usage: developer_challenge [options]"
+  opts.banner = "Usage: developer_challenge --test slowapi -n 5 -f output.txt"
 
   opts.on("-t", "--test TYPE", [:slowapi, :minimum_path_sum], "The type of test to run - slowapi or minimum_path_sum") do |v|
     options[:type] = v
   end
-  opts.on("-n REQUESTS", "The number of times to request the URL") do |v|
+  opts.on("-n REQUESTS", Integer, "The number of times to request the URL") do |v|
     options[:n] = v
   end
   opts.on("-f FILE", "Input or output file") do |v|
@@ -18,9 +18,14 @@ OptionParser.new do |opts|
   end
 end.parse!
 
+if not options.key? :file
+  puts "--file required"
+  exit 1
+end
+
 case options[:type]
 when :slowapi
-  DeveloperChallenge.do_slowapi(options[:n], options[:file])
+  DeveloperChallenge.do_slowapi options.fetch(:n, 1), options[:file]
 when :minimum_path_sum
-  puts DeveloperChallenge.do_minimum_path_sum(options[:file}])
+  puts DeveloperChallenge.do_minimum_path_sum(options[:file])
 end
