@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
     raise "RubyGems 2.0 or newer is required to protect against public gem pushes."
   end
 
-  # spec.executables << 'developer_challenge'
+  spec.executables << 'developer_challenge'
 
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec",  "~> 2.0", ">= 2.0.0"
